@@ -7,6 +7,7 @@ package com.jiangy.thinkinginstatemachine.domain.order.enums;
  */
 public enum OrderStates {
     INITIAL,
+    UN_PAID,
     TO_DELIVER,
     DELIVERED,
     PAUSED,

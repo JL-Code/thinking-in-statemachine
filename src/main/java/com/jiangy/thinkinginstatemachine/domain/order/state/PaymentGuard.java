@@ -1,6 +1,5 @@
 package com.jiangy.thinkinginstatemachine.domain.order.state;
 
-import com.jiangy.thinkinginstatemachine.domain.order.Order;
 import com.jiangy.thinkinginstatemachine.domain.order.enums.OrderEvents;
 import com.jiangy.thinkinginstatemachine.domain.order.enums.OrderStates;
 import com.jiangy.thinkinginstatemachine.domain.order.enums.PaymentTypes;
@@ -24,15 +23,16 @@ public class PaymentGuard {
     @Autowired
     private PaymentService paymentService;
 
-    public Guard<OrderStates, OrderEvents> prepaidGuard() {
+    public Guard<OrderStates, OrderEvents> isPrepaid() {
         return context -> {
             var result = OrderUtils.getOrder(context);
             return result.filter(order -> order.getPaymentType() == PaymentTypes.PREPAID
-                    && paymentService.checkFunds(order.getBuyerId(), order.getTotalAmount())).isPresent();
+                            && paymentService.checkFunds(order.getBuyerId(), order.getTotalAmount()))
+                    .isPresent();
         };
     }
 
-    public Guard<OrderStates, OrderEvents> postpaidGuard() {
+    public Guard<OrderStates, OrderEvents> isPostpaid() {
         return context -> {
             var result = OrderUtils.getOrder(context);
             return result.filter(order -> order.getPaymentType() == PaymentTypes.POSTPAID

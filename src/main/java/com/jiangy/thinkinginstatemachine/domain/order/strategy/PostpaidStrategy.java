@@ -1,10 +1,10 @@
 package com.jiangy.thinkinginstatemachine.domain.order.strategy;
 
-import com.jiangy.thinkinginstatemachine.domain.order.Order;
-import com.jiangy.thinkinginstatemachine.domain.order.exception.PaymentException;
+import com.jiangy.thinkinginstatemachine.domain.order.entity.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 /**
  * <p>创建时间: 2025/3/4 </p>
@@ -23,10 +23,11 @@ public class PostpaidStrategy implements PaymentStrategy {
     }
 
     @Override
-    public void process(Order order) {
+    public Optional<PaymentResponse> process(Order order) {
         // 记录支付义务
 //        paymentService.createPaymentObligation(order);
         order.setPaymentDeadline(LocalDateTime.now().plusDays(7));
+        return Optional.empty();
     }
 
     @Override

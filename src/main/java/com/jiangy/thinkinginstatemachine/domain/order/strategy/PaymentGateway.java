@@ -8,7 +8,18 @@ import java.math.BigDecimal;
  * @author <a href="mailto:jiangliu0316@outlook.com" rel="nofollow">蒋勇</a>
  */
 public interface PaymentGateway {
+    /**
+     * 创建交易
+     *
+     * @param totalAmount
+     * @return
+     */
     PaymentResult charge(BigDecimal totalAmount);
 
+    /**
+     * 关闭交易
+     *
+     * @param paymentTransactionId
+     */
     void cancel(String paymentTransactionId);
 }

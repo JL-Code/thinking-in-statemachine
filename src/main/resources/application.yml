@@ -11,7 +11,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        show_sql: false # 不再控制台显示 SQL
+        show_sql: true
         format_sql: true
         use_sql_comments: true
 server:

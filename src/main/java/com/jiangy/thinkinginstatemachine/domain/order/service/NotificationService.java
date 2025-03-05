@@ -1,6 +1,6 @@
 package com.jiangy.thinkinginstatemachine.domain.order.service;
 
-import com.jiangy.thinkinginstatemachine.domain.order.Order;
+import com.jiangy.thinkinginstatemachine.domain.order.entity.Order;
 import org.springframework.stereotype.Component;
 
 /**

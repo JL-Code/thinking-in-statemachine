@@ -1,0 +1,23 @@
+{
+  "gmt_create": "2024-12-07 23:30:37",
+  "charset": "UTF-8",
+  "gmt_payment": "2024-12-07 23:30:59",
+  "notify_time": "2024-12-07 23:30:59",
+  "subject": "押金充值0.1",
+  "buyer_id": "2088302302372253",
+  "invoice_amount": "0.10",
+  "version": "1.0",
+  "notify_id": "2024120701222233059072251409646856",
+  "fund_bill_list": "[{\"amount\":\"0.10\",\"fundChannel\":\"ALIPAYACCOUNT\"}]",
+  "notify_type": "trade_status_sync",
+  "out_trade_no": "202412077191DT",
+  "total_amount": "0.10",
+  "trade_status": "TRADE_SUCCESS",
+  "trade_no": "2024120722001472251423837376",
+  "auth_app_id": "2021003126626432",
+  "receipt_amount": "0.10",
+  "point_amount": "0.00",
+  "buyer_pay_amount": "0.10",
+  "app_id": "2021003126626432",
+  "seller_id": "2088341996182966"
+}

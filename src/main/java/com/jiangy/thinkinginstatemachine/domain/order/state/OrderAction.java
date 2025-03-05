@@ -1,6 +1,6 @@
 package com.jiangy.thinkinginstatemachine.domain.order.state;
 
-import com.jiangy.thinkinginstatemachine.domain.order.Order;
+import com.jiangy.thinkinginstatemachine.domain.order.entity.Order;
 import com.jiangy.thinkinginstatemachine.domain.order.enums.OrderEvents;
 import com.jiangy.thinkinginstatemachine.domain.order.enums.OrderStates;
 import com.jiangy.thinkinginstatemachine.domain.order.service.DepositService;
