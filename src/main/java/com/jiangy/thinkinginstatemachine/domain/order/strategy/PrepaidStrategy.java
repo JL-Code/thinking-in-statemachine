@@ -1,8 +1,11 @@
 package com.jiangy.thinkinginstatemachine.domain.order.strategy;
 
 import com.jiangy.thinkinginstatemachine.domain.order.entity.Order;
+import com.jiangy.thinkinginstatemachine.domain.order.enums.OrderEvents;
+import com.jiangy.thinkinginstatemachine.domain.order.enums.OrderStates;
 import com.jiangy.thinkinginstatemachine.domain.order.exception.PaymentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.statemachine.config.StateMachineFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

@@ -3,6 +3,7 @@ package com.jiangy.thinkinginstatemachine.domain.order.service;
 import com.jiangy.thinkinginstatemachine.domain.order.CreateOrderResponse;
 import com.jiangy.thinkinginstatemachine.domain.order.entity.Order;
 import com.jiangy.thinkinginstatemachine.domain.order.OrderRequest;
+import com.jiangy.thinkinginstatemachine.domain.order.enums.OrderEvents;
 import com.jiangy.thinkinginstatemachine.domain.order.enums.OrderStates;
 import com.jiangy.thinkinginstatemachine.domain.order.enums.PaymentTypes;
 import com.jiangy.thinkinginstatemachine.domain.order.enums.TradeStatus;
@@ -13,6 +14,7 @@ import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.statemachine.config.StateMachineFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -35,6 +37,9 @@ public class OrderService {
 
     @Autowired
     private Map<String, PaymentStrategy> paymentStrategies;
+
+    @Autowired
+    private StateMachineFactory<OrderStates, OrderEvents> stateMachineFactory;
 
     @Autowired
     private OrderRepository orderRepository;
@@ -75,6 +80,8 @@ public class OrderService {
 
             // 处理支付并获取支付信息
             Optional<PaymentResponse> opt = strategy.process(order);
+
+            stateMachineFactory.getStateMachine("");
 
             // 保存交易信息
             orderRepository.save(order);
